@@ -1,6 +1,8 @@
+import java.util.Arrays;
+
 public class Mano {
-	private Carta mano[];
-	private String jugador;
+	String jugador;
+	Carta mano[];
 	
 	public Mano(String jugador, String cartas) {
 		this.jugador = jugador;
@@ -9,17 +11,14 @@ public class Mano {
 		for (int i = 0; i < strcartas.length; i++) {
 			mano[i] = new Carta(strcartas[i]);
 		}
-	}
-	
-	public Mano(String jugador, Carta[] cartas) {
-		this.jugador = jugador;
-		cartas = Baraja.mano();
+		
 	}
 	
 	public void mostrarMano() {
+		Arrays.sort(mano);
 		for (int i = 0; i < mano.length; i++) {
 			System.out.print(mano[i]);
-			System.out.print("-");
+			System.out.print(" ");
 		}
 	}
 }

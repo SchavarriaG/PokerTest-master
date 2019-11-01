@@ -1,6 +1,6 @@
 public class Baraja {
-	private static Carta cartas[];
-	private static int cartaSig;
+	public Carta cartas[];
+	public int cartaSig;
 	public static final int Ncartas = 52;
 	
 	public Baraja() {
@@ -10,7 +10,7 @@ public class Baraja {
 		barajar();
 	}
 	
-	private void crearBaraja() {
+	void crearBaraja() {
 		String[] palos = Carta.PALOS;
 		String[] numeros = Carta.NUMEROS;
 		
@@ -38,15 +38,15 @@ public class Baraja {
 		}
 	}
 	
-	public static Carta sigCarta() {
+	public Carta sigCarta() {
 		Carta c = cartas[cartaSig++];
 		return c;
 	} 
 	
-	public static Carta[] mano() {
+	public Carta[] mano() {
 		Carta[] cartasmano = new Carta[5];
 		for(int i = 0; i < cartasmano.length; i++) {
-			cartasmano[i] = Baraja.sigCarta();
+			cartasmano[i] = sigCarta();
 		}
 		return cartas;
 	}

@@ -1,4 +1,4 @@
-public class Carta {
+public class Carta implements Comparable<Carta>{
 	public String num;
 	public String palo;
 	public int valor;
@@ -13,13 +13,21 @@ public class Carta {
 	}
 	
 	public Carta (String carta) {
-		num = carta.substring(0);
-		palo = carta.substring(1,1);
-		for (int i = 0; i < NUMEROS.length; i++) {
-			if (carta.substring(0) == NUMEROS[i]) {
-				valor = i;
+		if("1".equals(carta.substring(0,1))) {
+			valor = 9;
+			num = "10";
+			palo = carta.substring(2,3);
+		}
+		else {
+			for (int i = 0; i < 13 ; i++) {
+				if (NUMEROS[i].equals(carta.substring(0,1))) {
+					valor = i+1;
+					num = carta.substring(0,1);
+					palo = carta.substring(1,2);
+				}
 			}
 		}
+		
 		
 	}
 	
@@ -29,10 +37,30 @@ public class Carta {
 	}
 	
 	public static void main(String[]args){
-		 Carta car = new Carta("2S");
-		 System.out.println(car);
-		 Baraja bar = new Baraja();
-		 bar.mostrarbaraja();
+		 Mano bar = new Mano("Negro", "2C,3H,10S,8C,AH");
+		 bar.mostrarMano();
 	}
+	
+	int getvalor() {
+		return valor;
+	}
+	
+	String getnum() {
+		return num;
+	}
+	
+	String getpalo() {
+		return palo;
+	}
+	
+	public int compareTo(Carta o) {
+         if (valor < o.valor) {
+             return -1;
+         }
+         if (valor > o.valor) {
+             return 1;
+         }
+         return 0;
+    }
 }
 

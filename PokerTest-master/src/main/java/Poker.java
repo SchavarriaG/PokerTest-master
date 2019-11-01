@@ -10,6 +10,21 @@ public class Poker {
         return 10;
     }
     
-    
+    public static String CartaAlta(Mano mano1, Mano mano2) {
+    	int mayor1 = 0, mayor2 = 0;
+    	
+    	for (int i = 0; i < 5 ; i++) {
+    		if (mano1.mano[i].valor >= mayor1) {
+    			mayor1 = mano1.mano[i].valor;
+    		}
+    		if (mano2.mano[i].valor >= mayor2) {
+    			mayor2 = mano2.mano[i].valor;
+    		}
+    	}
+    	
+    	
+    	
+    	return "Shi";
+    }
 }
 
