@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Collections;
 
 public class Mano {
 	String jugador;
@@ -11,11 +12,12 @@ public class Mano {
 		for (int i = 0; i < strcartas.length; i++) {
 			mano[i] = new Carta(strcartas[i]);
 		}
-		
+		Arrays.sort(mano, Collections.reverseOrder());
 	}
 	
+	
 	public void mostrarMano() {
-		Arrays.sort(mano);
+		
 		for (int i = 0; i < mano.length; i++) {
 			System.out.print(mano[i]);
 			System.out.print(" ");

@@ -53,6 +53,7 @@ public class Carta implements Comparable<Carta>{
 		return palo;
 	}
 	
+	
 	public int compareTo(Carta o) {
          if (valor < o.valor) {
              return -1;
